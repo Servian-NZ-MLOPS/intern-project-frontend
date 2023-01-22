@@ -10,6 +10,17 @@
       "StackName": "amplify-manualinternfrontend-staging-00333",
       "StackId": "arn:aws:cloudformation:ap-southeast-2:006971011032:stack/amplify-manualinternfrontend-staging-00333/8c76f9f0-96c3-11ed-b0b0-06dfc8e1c34e",
       "AmplifyAppId": "d2t47ov4dg63k4"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d2t47ov4dg63k4",
+          "type": "manual"
+        }
+      },
+      "api": {
+        "manualinternfrontend": {}
+      }
     }
   }
 }

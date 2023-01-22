@@ -5,9 +5,9 @@
  **************************************************************************/
 
 import * as React from "react";
-import { User } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { ButtonProps, FlexProps, ImageProps, TextProps } from "@aws-amplify/ui-react";
+import { SyntheticEvent } from "react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type ProfileCardOverridesProps = {
     ProfileCard?: PrimitiveOverrideProps<FlexProps>;
@@ -18,7 +18,10 @@ export declare type ProfileCardOverridesProps = {
     Button?: PrimitiveOverrideProps<ButtonProps>;
 } & EscapeHatchProps;
 export declare type ProfileCardProps = React.PropsWithChildren<Partial<FlexProps> & {
-    user?: User;
+    buttonEvent?: (event: SyntheticEvent) => void;
+    username?: String;
+    image?: String;
+    role?: String;
 } & {
     overrides?: ProfileCardOverridesProps | undefined | null;
 }>;

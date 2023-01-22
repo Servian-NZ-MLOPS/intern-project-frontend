@@ -9,7 +9,14 @@ import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Button, Flex, Image, Text } from "@aws-amplify/ui-react";
 export default function ProfileCard(props) {
-  const { user, overrides, ...rest } = props;
+  const {
+    buttonEvent,
+    username = "Default",
+    image,
+    role,
+    overrides,
+    ...rest
+  } = props;
   return (
     <Flex
       gap="24px"
@@ -36,7 +43,7 @@ export default function ProfileCard(props) {
         borderRadius="160px"
         padding="0px 0px 0px 0px"
         objectFit="cover"
-        src={user?.picture}
+        src={image}
         {...getOverrideProps(overrides, "image")}
       ></Image>
       <Flex
@@ -69,7 +76,7 @@ export default function ProfileCard(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children={user?.name}
+          children={username}
           {...getOverrideProps(overrides, "Melinda Marcus")}
         ></Text>
         <Text
@@ -91,7 +98,7 @@ export default function ProfileCard(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children={user?.role}
+          children={role}
           {...getOverrideProps(overrides, "Design Engineer at Cloth Studios")}
         ></Text>
       </Flex>
@@ -102,6 +109,7 @@ export default function ProfileCard(props) {
         isDisabled={false}
         variation="primary"
         children="View Profile"
+        onClick={buttonEvent}
         {...getOverrideProps(overrides, "Button")}
       ></Button>
     </Flex>

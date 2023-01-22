@@ -1,25 +1,33 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
 import config from './aws-exports'
-import Amplify from 'aws-amplify'
-
+import { Amplify } from 'aws-amplify'
 import { AmplifyProvider } from '@aws-amplify/ui-react'
 import '@aws-amplify/ui-react/styles.css'
 
+import { createRoot } from "react-dom/client"
+import { BrowserRouter } from "react-router-dom"
+
+import { App } from "./App"
+import { Auth0ProviderWithNavigate } from './auth0-provider-with-navigate';
+
+
+// Amplify Stuff
 Amplify.configure(config)
 
-ReactDOM.render(
-  <AmplifyProvider>
-    <App />
-  </AmplifyProvider>,
-  document.getElementById('root')
-)
+const container = document.getElementById("root");
+const root = createRoot(container);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// Actual stuff
+root.render(
+  <React.StrictMode>
+    <AmplifyProvider>
+      <BrowserRouter>
+        <Auth0ProviderWithNavigate>
+          <App />
+        </Auth0ProviderWithNavigate>
+      </BrowserRouter>
+    </AmplifyProvider>
+  </React.StrictMode>
+)
