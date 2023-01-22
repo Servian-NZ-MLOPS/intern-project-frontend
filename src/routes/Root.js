@@ -1,11 +1,8 @@
 import React from 'react';
-import { Flex, Loader, useTheme, View, Card } from '@aws-amplify/ui-react';
-import { NavBar, SideBar } from "../ui-components"
-import NavigationButtons from "../auth-components/NavigationButtons"
+import { Flex, useTheme, View, Card } from '@aws-amplify/ui-react';
+import { NavBar } from "../ui-components"
 import { useAuth0 } from "@auth0/auth0-react"
-import { Link, NavLink } from 'react-router-dom';
-import Studio from './Studio';
-import { ProfilePage } from '../auth-components/ProfilePage';
+import Studio from '../views/Profile';
 import StudioButton from '../auth-components/StudioButton';
 import LogoutButton from '../auth-components/LogoutButton';
 

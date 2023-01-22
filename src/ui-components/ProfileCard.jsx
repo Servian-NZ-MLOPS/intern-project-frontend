@@ -108,7 +108,7 @@ export default function ProfileCard(props) {
         size="large"
         isDisabled={false}
         variation="primary"
-        children="View Profile"
+        children="Logout"
         onClick={buttonEvent}
         {...getOverrideProps(overrides, "Button")}
       ></Button>
