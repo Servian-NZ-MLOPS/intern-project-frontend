@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { NavBar } from "../ui-components";
 import { Auth, Storage } from 'aws-amplify'
-import { Image, Loader } from '@aws-amplify/ui-react';
+import { Image, Loader, withAuthenticator } from '@aws-amplify/ui-react';
 import { redirect, useNavigate } from 'react-router-dom';
 
-function Header(){
-    const user = Auth.currentAuthenticatedUser()
+function Header(props){
+    const profilePictureURL = props.profilePictureURL 
     const navigate = useNavigate()
 
     // Add logo image to state variables
@@ -40,12 +40,14 @@ function Header(){
     }
 
     return (
-        <NavBar
-            logo={logo}
-            profilePicture={user.picture}
-            homeClickHandler={handleHomeClick}
-            studioClickHandler={handleStudioClick}
-        />
+        <div>
+            <NavBar
+                logo={logo}
+                profilePicture={profilePictureURL}
+                homeClickHandler={handleHomeClick}
+                studioClickHandler={handleStudioClick}
+            />
+        </div>
     );
 }
 

@@ -12,7 +12,7 @@ import {
   Route 
 } from 'react-router-dom';
 
-const App = () => {
+function App() {
   return (
     <BrowserRouter>
       <Routes>

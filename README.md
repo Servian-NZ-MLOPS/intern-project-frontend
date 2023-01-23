@@ -1,5 +1,30 @@
 https://staging.d2t47ov4dg63k4.amplifyapp.com
 
+https://manualinternfrontendaa4fa423-aa4fa423-staging.auth.ap-southeast-2.amazoncognito.com/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Getting Started with Create React App

@@ -8,9 +8,9 @@ function Root({signOut, user}) {
         <Flex
             direction='column'
         >
-            <Header />
+            <Header profilePictureURL={user.attributes.picture}/>
             <Card>
-                <Heading level={1}>Hello {user.username}</Heading>
+                <Heading level={1}>Hello {user.attributes.given_name}</Heading>
                 <Button onClick={signOut}>Sign out</Button>
                 <StudioButton />
             </Card>
