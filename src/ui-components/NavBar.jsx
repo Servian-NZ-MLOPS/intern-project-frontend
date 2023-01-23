@@ -10,7 +10,7 @@ import {
   getOverrideProps,
   useNavigateAction,
 } from "@aws-amplify/ui-react/internal";
-import { Divider, Flex, Image, Text } from "@aws-amplify/ui-react";
+import { Button, Divider, Flex, Image } from "@aws-amplify/ui-react";
 export default function NavBar(props) {
   const {
     logo,
@@ -20,15 +20,16 @@ export default function NavBar(props) {
     overrides,
     ...rest
   } = props;
-  const githubOnClick = useNavigateAction({
+  const githubButtonOnClick = useNavigateAction({
+    target: "_blank",
     type: "url",
     url: "https://github.com/Servian-NZ-MLOPS/intern-datasci-project-22",
   });
-  const confluenceOnClick = useNavigateAction({
+  const confluenceButtonOnClick = useNavigateAction({
     type: "url",
     url: "https://servian.atlassian.net/wiki/spaces/NZAIML/pages/111618785317/NZ+ai+consulting+practice+internships",
   });
-  const jiraOnClick = useNavigateAction({
+  const jiraButtonOnClick = useNavigateAction({
     type: "url",
     url: "https://servian.atlassian.net/jira/software/c/projects/NZS/boards/138/backlog?issueLimit=100",
   });
@@ -71,26 +72,9 @@ export default function NavBar(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           backgroundColor="rgba(255,255,255,1)"
+          children={logo}
           {...getOverrideProps(overrides, "Logo")}
-        >
-          <Image
-            width="unset"
-            height="unset"
-            display="block"
-            gap="unset"
-            alignItems="unset"
-            justifyContent="unset"
-            grow="1"
-            shrink="1"
-            basis="0"
-            alignSelf="stretch"
-            position="relative"
-            padding="0px 0px 0px 0px"
-            objectFit="cover"
-            src={logo}
-            {...getOverrideProps(overrides, "logo")}
-          ></Image>
-        </Flex>
+        ></Flex>
         <Divider
           height="unset"
           shrink="0"
@@ -99,127 +83,57 @@ export default function NavBar(props) {
           orientation="vertical"
           {...getOverrideProps(overrides, "Divider")}
         ></Divider>
-        <Text
-          fontFamily="Inter"
-          fontSize="20px"
-          fontWeight="400"
-          color="rgba(0,0,0,1)"
-          lineHeight="24px"
-          textAlign="left"
-          display="block"
-          direction="column"
-          justifyContent="unset"
-          letterSpacing="0.05px"
-          width="unset"
-          height="unset"
-          gap="unset"
-          alignItems="unset"
+        <Button
           shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
+          size="small"
+          isDisabled={false}
+          variation="link"
           children="Home"
           onClick={homeClickHandler}
-          {...getOverrideProps(overrides, "Home")}
-        ></Text>
-        <Text
-          fontFamily="Inter"
-          fontSize="20px"
-          fontWeight="400"
-          color="rgba(0,0,0,1)"
-          lineHeight="24px"
-          textAlign="left"
-          display="block"
-          direction="column"
-          justifyContent="unset"
-          letterSpacing="0.05px"
-          width="unset"
-          height="unset"
-          gap="unset"
-          alignItems="unset"
+          {...getOverrideProps(overrides, "HomeButton")}
+        ></Button>
+        <Button
           shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
+          size="small"
+          isDisabled={false}
+          variation="link"
           children="Studio"
           onClick={studioClickHandler}
-          {...getOverrideProps(overrides, "Studio")}
-        ></Text>
-        <Text
-          fontFamily="Inter"
-          fontSize="20px"
-          fontWeight="400"
-          color="rgba(0,0,0,1)"
-          lineHeight="24px"
-          textAlign="left"
-          display="block"
-          direction="column"
-          justifyContent="unset"
-          letterSpacing="0.05px"
-          width="unset"
-          height="unset"
-          gap="unset"
-          alignItems="unset"
+          {...getOverrideProps(overrides, "StudioButton")}
+        ></Button>
+        <Button
           shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
+          size="small"
+          isDisabled={false}
+          variation="link"
           children="Github"
           onClick={() => {
-            githubOnClick();
+            githubButtonOnClick();
           }}
-          {...getOverrideProps(overrides, "Github")}
-        ></Text>
-        <Text
-          fontFamily="Inter"
-          fontSize="20px"
-          fontWeight="400"
-          color="rgba(0,0,0,1)"
-          lineHeight="24px"
-          textAlign="left"
-          display="block"
-          direction="column"
-          justifyContent="unset"
-          letterSpacing="0.05px"
-          width="unset"
-          height="unset"
-          gap="unset"
-          alignItems="unset"
+          {...getOverrideProps(overrides, "GithubButton")}
+        ></Button>
+        <Button
           shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
+          size="small"
+          isDisabled={false}
+          variation="link"
           children="Confluence"
           onClick={() => {
-            confluenceOnClick();
+            confluenceButtonOnClick();
           }}
-          {...getOverrideProps(overrides, "Confluence")}
-        ></Text>
-        <Text
-          fontFamily="Inter"
-          fontSize="20px"
-          fontWeight="400"
-          color="rgba(0,0,0,1)"
-          lineHeight="24px"
-          textAlign="left"
-          display="block"
-          direction="column"
-          justifyContent="unset"
-          letterSpacing="0.05px"
-          width="unset"
-          height="unset"
-          gap="unset"
-          alignItems="unset"
+          {...getOverrideProps(overrides, "ConfluenceButton")}
+        ></Button>
+        <Button
           shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
+          size="small"
+          isDisabled={false}
+          variation="link"
           children="Jira"
           onClick={() => {
-            jiraOnClick();
+            jiraButtonOnClick();
           }}
-          {...getOverrideProps(overrides, "Jira")}
-        ></Text>
+          {...getOverrideProps(overrides, "JiraButton")}
+        ></Button>
       </Flex>
       <Flex
         gap="32px"

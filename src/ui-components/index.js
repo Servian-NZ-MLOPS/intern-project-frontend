@@ -22,7 +22,6 @@ export { default as TallCard } from "./TallCard";
 export { default as Features2x3 } from "./Features2x3";
 export { default as HeroLayout2 } from "./HeroLayout2";
 export { default as JiraHover } from "./JiraHover";
-export { default as UserCollection } from "./UserCollection";
 export { default as SocialPost } from "./SocialPost";
 export { default as LogoHover } from "./LogoHover";
 export { default as ProductCard } from "./ProductCard";

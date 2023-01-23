@@ -6,25 +6,24 @@
 
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { DividerProps, FlexProps, ImageProps, TextProps } from "@aws-amplify/ui-react";
+import { ButtonProps, DividerProps, FlexProps, ImageProps } from "@aws-amplify/ui-react";
 import { SyntheticEvent } from "react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type NavBarOverridesProps = {
     NavBar?: PrimitiveOverrideProps<FlexProps>;
     "Left Frame"?: PrimitiveOverrideProps<FlexProps>;
     Logo?: PrimitiveOverrideProps<FlexProps>;
-    logo?: PrimitiveOverrideProps<ImageProps>;
     Divider?: PrimitiveOverrideProps<DividerProps>;
-    Home?: PrimitiveOverrideProps<TextProps>;
-    Studio?: PrimitiveOverrideProps<TextProps>;
-    Github?: PrimitiveOverrideProps<TextProps>;
-    Confluence?: PrimitiveOverrideProps<TextProps>;
-    Jira?: PrimitiveOverrideProps<TextProps>;
+    HomeButton?: PrimitiveOverrideProps<ButtonProps>;
+    StudioButton?: PrimitiveOverrideProps<ButtonProps>;
+    GithubButton?: PrimitiveOverrideProps<ButtonProps>;
+    ConfluenceButton?: PrimitiveOverrideProps<ButtonProps>;
+    JiraButton?: PrimitiveOverrideProps<ButtonProps>;
     "Right Frame"?: PrimitiveOverrideProps<FlexProps>;
     profile?: PrimitiveOverrideProps<ImageProps>;
 } & EscapeHatchProps;
 export declare type NavBarProps = React.PropsWithChildren<Partial<FlexProps> & {
-    logo?: String;
+    logo?: React.ReactNode;
     profilePicture?: String;
     homeClickHandler?: (event: SyntheticEvent) => void;
     studioClickHandler?: (event: SyntheticEvent) => void;
