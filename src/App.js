@@ -8,7 +8,6 @@ import { Flex, Link } from '@aws-amplify/ui-react';
 
 import { 
   BrowserRouter,
-  Link as ReactRouterLink,
   Routes,
   Route 
 } from 'react-router-dom';
@@ -16,13 +15,6 @@ import {
 const App = () => {
   return (
     <BrowserRouter>
-      <Flex>
-        <ReactRouterLink to="/" component={Link}>Root</ReactRouterLink>
-        <ReactRouterLink to="/studio" component={Link}>Studio</ReactRouterLink>
-        <ReactRouterLink to="/home" component={Link}>Home</ReactRouterLink>
-        <ReactRouterLink to="/error" component={Link}>ErrorPage</ReactRouterLink>
-
-      </Flex>
       <Routes>
         <Route path="/" element={<Root />} />
         <Route path="/studio" element={<Studio />} />

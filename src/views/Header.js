@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { NavBar } from "../ui-components";
 import { useNavigate } from 'react-router-dom';
-import { Storage } from 'aws-amplify'
-import { withAuthenticator } from '@aws-amplify/ui-react';
+import { Auth, Storage } from 'aws-amplify'
 
-function Header({user}){
-    const navigate = useNavigate();
+function Header(){
+    const user = Auth.currentAuthenticatedUser()
 
     // Add logo image to state variables
     const [logoImage, setLogoImage] = useState(require('../res/images/placeholder.png'))
@@ -31,11 +30,9 @@ function Header({user}){
         <NavBar
             logo={logoImage}
             profilePicture={user.picture}
-            homeClickHandler={navigate("/home")}
-            studioClickHandler={navigate("/studio")}
         />
     );
 }
 
-export default withAuthenticator(Header)
+export default Header
 

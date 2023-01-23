@@ -22,7 +22,7 @@ const StudioButton = () => {
         const location = await response.json()
         console.log(location)
 
-        window.location.href(location)
+        window.location.replace(location)
     };
 
 

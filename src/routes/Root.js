@@ -1,14 +1,20 @@
-import { Button, Card, Heading, withAuthenticator } from "@aws-amplify/ui-react";
+import { Button, Card, Flex, Heading, withAuthenticator } from "@aws-amplify/ui-react";
 import StudioButton from "../auth-components/StudioButton";
+import Header from "../views/Header";
 
 function Root({signOut, user}) {
 
     return (
-        <Card>
-            <Heading level={1}>Hello {user.username}</Heading>
-            <Button onClick={signOut}>Sign out</Button>
-            <StudioButton />
-        </Card>
+        <Flex
+            direction='column'
+        >
+            <Header />
+            <Card>
+                <Heading level={1}>Hello {user.username}</Heading>
+                <Button onClick={signOut}>Sign out</Button>
+                <StudioButton />
+            </Card>
+        </Flex>
     );
 }
 
