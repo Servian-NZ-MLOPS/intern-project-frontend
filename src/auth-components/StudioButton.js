@@ -13,16 +13,16 @@ const StudioButton = () => {
 
     const callApi = async () => {
         const tokens = await Auth.currentSession()
-        const response = await fetch(`https://uml5vqy1nj.execute-api.ap-southeast-2.amazonaws.com/default/api/external`, {
+        const response = await fetch(`https://r2iubqb09l.execute-api.ap-southeast-2.amazonaws.com/default/api/external`, {
             headers: {
-                Authorization: `Bearer ${tokens.getAccessToken().getJwtToken()}`
+                Authorization: `Bearer ${tokens.getIdToken().getJwtToken()}`
             }
         });
 
         const location = await response.json()
         console.log(location)
 
-        window.location.replace(location)
+        // window.location.replace(location)
     };
 
 
