@@ -1,17 +1,8 @@
 import React from 'react';
-import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
-import { Flex, View, Loader } from '@aws-amplify/ui-react'
+import { Flex, View, withAuthenticator } from '@aws-amplify/ui-react'
 import { ProfileCard } from "../ui-components"
 
-const Studio = () => {
-
-    const { user, logout, isLoading } = useAuth0();
-
-    if (isLoading) {
-        return (
-            <Loader size="large" />
-        );
-    }
+function Studio({user, logout}) {
 
     return (
         <View  
@@ -46,4 +37,4 @@ const Studio = () => {
     );
 }
 
-export default withAuthenticationRequired(Studio);
+export default withAuthenticator(Studio);

@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { useAuth0 } from '@auth0/auth0-react';
 import { NavBar } from "../ui-components";
 import { useNavigate } from 'react-router-dom';
 import { Storage } from 'aws-amplify'
+import { withAuthenticator } from '@aws-amplify/ui-react';
 
-const Header = () => {
-    const { user } = useAuth0();
+function Header({user}){
     const navigate = useNavigate();
 
     // Add logo image to state variables
@@ -38,5 +37,5 @@ const Header = () => {
     );
 }
 
-export default Header
+export default withAuthenticator(Header)
 
