@@ -1,14 +1,15 @@
 import React from 'react';
 import { Flex, useTheme, View, Card } from '@aws-amplify/ui-react';
-import { NavBar } from "../ui-components"
-import { useAuth0 } from "@auth0/auth0-react"
+import { withAuthenticationRequired } from "@auth0/auth0-react"
 import Studio from '../views/Profile';
 import StudioButton from '../auth-components/StudioButton';
 import LogoutButton from '../auth-components/LogoutButton';
+import Header from '../views/Header';
+
 
 function Root() {
   const { tokens } = useTheme();
-  const { isLoading } = useAuth0();
+
 
   return (
     <>
@@ -20,7 +21,7 @@ function Root() {
         wrap="nowrap"
         gap="0rem"
       >
-        <NavBar />
+        <Header />
         <View
           backgroundColor={tokens.colors.background.secondary}
           padding={tokens.space.large}
@@ -59,4 +60,4 @@ function Root() {
   );
 };
 
-export default Root;
+export default withAuthenticationRequired(Root);

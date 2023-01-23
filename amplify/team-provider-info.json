@@ -20,6 +20,12 @@
       },
       "api": {
         "manualinternfrontend": {}
+      },
+      "auth": {
+        "manualinternfrontendaa4fa423": {}
+      },
+      "storage": {
+        "internprojectmanual": {}
       }
     }
   }

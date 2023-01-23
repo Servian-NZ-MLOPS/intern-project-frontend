@@ -1,0 +1,13 @@
+{
+  "resourceName": "internprojectmanual",
+  "policyUUID": "9655bf28",
+  "bucketName": "manualinternfrontendbucket",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}
