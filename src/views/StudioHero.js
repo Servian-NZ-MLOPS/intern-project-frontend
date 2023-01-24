@@ -31,8 +31,7 @@ function StudioHero(props) {
         const location = await getStudioURL()
         console.log(location)
         setIsButtonLoading(false)
-
-        // window.location.replace(location)
+        window.location.replace(location)
     };
 
     return (
