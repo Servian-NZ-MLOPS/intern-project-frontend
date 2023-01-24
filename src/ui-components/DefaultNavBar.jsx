@@ -10,28 +10,22 @@ import {
   getOverrideProps,
   useNavigateAction,
 } from "@aws-amplify/ui-react/internal";
-import { Button, Divider, Flex, Image } from "@aws-amplify/ui-react";
-export default function NavBar(props) {
-  const {
-    logo,
-    profilePicture,
-    homeClickHandler,
-    studioClickHandler,
-    logoutClickHandler,
-    isStudioLoading = false,
-    overrides,
-    ...rest
-  } = props;
+import { Button, Divider, Flex } from "@aws-amplify/ui-react";
+export default function DefaultNavBar(props) {
+  const { homeClickHandler, loginClickHandler, logo, overrides, ...rest } =
+    props;
   const githubButtonOnClick = useNavigateAction({
     target: "_blank",
     type: "url",
     url: "https://github.com/Servian-NZ-MLOPS/intern-datasci-project-22",
   });
   const confluenceButtonOnClick = useNavigateAction({
+    target: "_blank",
     type: "url",
     url: "https://servian.atlassian.net/wiki/spaces/NZAIML/pages/111618785317/NZ+ai+consulting+practice+internships",
   });
   const jiraButtonOnClick = useNavigateAction({
+    target: "_blank",
     type: "url",
     url: "https://servian.atlassian.net/jira/software/c/projects/NZS/boards/138/backlog?issueLimit=100",
   });
@@ -46,7 +40,7 @@ export default function NavBar(props) {
       position="relative"
       padding="20px 20px 20px 20px"
       backgroundColor="rgba(250,250,250,1)"
-      {...getOverrideProps(overrides, "NavBar")}
+      {...getOverrideProps(overrides, "DefaultNavBar")}
       {...rest}
     >
       <Flex
@@ -96,11 +90,9 @@ export default function NavBar(props) {
         <Button
           shrink="0"
           size="large"
-          isDisabled={false}
+          isDisabled={true}
           variation="link"
-          isLoading={isStudioLoading}
           children="Studio"
-          onClick={studioClickHandler}
           {...getOverrideProps(overrides, "StudioButton")}
         ></Button>
         <Button
@@ -154,7 +146,7 @@ export default function NavBar(props) {
           direction="column"
           width="unset"
           height="unset"
-          justifyContent="flex-start"
+          justifyContent="center"
           alignItems="center"
           grow="1"
           shrink="1"
@@ -165,34 +157,14 @@ export default function NavBar(props) {
           backgroundColor="rgba(255,255,255,0)"
           {...getOverrideProps(overrides, "Frame 1")}
         >
-          <Image
-            width="100px"
-            height="100px"
-            display="block"
-            gap="unset"
-            alignItems="unset"
-            justifyContent="unset"
-            shrink="0"
-            position="relative"
-            border="1px SOLID rgba(0,0,0,1)"
-            boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
-            borderRadius="160px"
-            padding="0px 0px 0px 0px"
-            objectFit="cover"
-            src={profilePicture}
-            {...getOverrideProps(overrides, "profile")}
-          ></Image>
           <Button
-            grow="1"
-            shrink="1"
-            basis="0"
-            alignSelf="stretch"
+            shrink="0"
             size="large"
             isDisabled={false}
             variation="primary"
-            children="Logout"
-            onClick={logoutClickHandler}
-            {...getOverrideProps(overrides, "LogoutButton")}
+            children="Login"
+            onClick={loginClickHandler}
+            {...getOverrideProps(overrides, "LoginButton")}
           ></Button>
         </Flex>
       </Flex>

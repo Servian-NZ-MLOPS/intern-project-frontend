@@ -1,20 +1,20 @@
-import { Button, Card, Flex, Heading, withAuthenticator } from "@aws-amplify/ui-react";
-import StudioButton from "../auth-components/StudioButton";
-import Header from "../views/Header";
+import { withAuthenticator } from "@aws-amplify/ui-react";
+import UserHeader from "../views/UserHeader";
+import StudioHero from "../views/StudioHero";
 
-function Root({signOut, user}) {
+function Root({ user }) {
 
     return (
-        <Flex
-            direction='column'
-        >
-            <Header profilePictureURL={user.attributes.picture}/>
-            <Card>
-                <Heading level={1}>Hello {user.attributes.given_name}</Heading>
-                <Button onClick={signOut}>Sign out</Button>
-                <StudioButton />
-            </Card>
-        </Flex>
+        <>
+            <UserHeader
+                profilePictureURL={user.attributes.picture}
+            />
+            <StudioHero
+                userProfileName ={user.attributes.given_name}
+                userEmail = {user.attributes.email}
+                sagemakerDomain = "Manual"
+             />
+        </>
     );
 }
 

@@ -11,7 +11,7 @@ import {
   useNavigateAction,
 } from "@aws-amplify/ui-react/internal";
 import { Button, Divider, Flex, Image } from "@aws-amplify/ui-react";
-export default function NavBar(props) {
+export default function UserNavBar(props) {
   const {
     logo,
     profilePicture,
@@ -32,6 +32,7 @@ export default function NavBar(props) {
     url: "https://servian.atlassian.net/wiki/spaces/NZAIML/pages/111618785317/NZ+ai+consulting+practice+internships",
   });
   const jiraButtonOnClick = useNavigateAction({
+    target: "_blank",
     type: "url",
     url: "https://servian.atlassian.net/jira/software/c/projects/NZS/boards/138/backlog?issueLimit=100",
   });
@@ -46,7 +47,7 @@ export default function NavBar(props) {
       position="relative"
       padding="20px 20px 20px 20px"
       backgroundColor="rgba(250,250,250,1)"
-      {...getOverrideProps(overrides, "NavBar")}
+      {...getOverrideProps(overrides, "UserNavBar")}
       {...rest}
     >
       <Flex

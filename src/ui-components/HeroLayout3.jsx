@@ -9,19 +9,26 @@ import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Button, Flex, Text } from "@aws-amplify/ui-react";
 export default function HeroLayout3(props) {
-  const { overrides, ...rest } = props;
+  const {
+    topText,
+    midText,
+    botText,
+    studioOnClickHandler,
+    overrides,
+    ...rest
+  } = props;
   return (
     <Flex
       gap="10px"
       direction="column"
       width="1440px"
-      height="548px"
+      height="858px"
       justifyContent="center"
       alignItems="center"
       overflow="hidden"
       position="relative"
       padding="160px 240px 160px 240px"
-      backgroundColor="rgba(0,0,0,1)"
+      backgroundColor="rgba(0,0,0,0.5)"
       {...getOverrideProps(overrides, "HeroLayout3")}
       {...rest}
     >
@@ -59,7 +66,7 @@ export default function HeroLayout3(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children="LOREM IPSUM"
+          children={topText}
           {...getOverrideProps(overrides, "LOREM IPSUM")}
         ></Text>
         <Flex
@@ -94,7 +101,7 @@ export default function HeroLayout3(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="Ut enim ad minim veniam quis nostrud"
+            children={midText}
             {...getOverrideProps(
               overrides,
               "Ut enim ad minim veniam quis nostrud"
@@ -120,7 +127,7 @@ export default function HeroLayout3(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco."
+            children={botText}
             {...getOverrideProps(
               overrides,
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco."
@@ -132,7 +139,8 @@ export default function HeroLayout3(props) {
           size="large"
           isDisabled={false}
           variation="primary"
-          children="Primary Button"
+          children="Open SageMaker Studio"
+          onClick={studioOnClickHandler}
           {...getOverrideProps(overrides, "Button")}
         ></Button>
       </Flex>

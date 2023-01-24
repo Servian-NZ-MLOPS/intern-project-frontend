@@ -6,11 +6,11 @@
 
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { ButtonProps, DividerProps, FlexProps, ImageProps } from "@aws-amplify/ui-react";
+import { ButtonProps, DividerProps, FlexProps } from "@aws-amplify/ui-react";
 import { SyntheticEvent } from "react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type NavBarOverridesProps = {
-    NavBar?: PrimitiveOverrideProps<FlexProps>;
+export declare type DefaultNavBarOverridesProps = {
+    DefaultNavBar?: PrimitiveOverrideProps<FlexProps>;
     "Left Frame"?: PrimitiveOverrideProps<FlexProps>;
     Logo?: PrimitiveOverrideProps<FlexProps>;
     Divider?: PrimitiveOverrideProps<DividerProps>;
@@ -21,17 +21,13 @@ export declare type NavBarOverridesProps = {
     JiraButton?: PrimitiveOverrideProps<ButtonProps>;
     "Right Frame"?: PrimitiveOverrideProps<FlexProps>;
     "Frame 1"?: PrimitiveOverrideProps<FlexProps>;
-    profile?: PrimitiveOverrideProps<ImageProps>;
-    LogoutButton?: PrimitiveOverrideProps<ButtonProps>;
+    LoginButton?: PrimitiveOverrideProps<ButtonProps>;
 } & EscapeHatchProps;
-export declare type NavBarProps = React.PropsWithChildren<Partial<FlexProps> & {
-    logo?: React.ReactNode;
-    profilePicture?: String;
+export declare type DefaultNavBarProps = React.PropsWithChildren<Partial<FlexProps> & {
     homeClickHandler?: (event: SyntheticEvent) => void;
-    studioClickHandler?: (event: SyntheticEvent) => void;
-    logoutClickHandler?: (event: SyntheticEvent) => void;
-    isStudioLoading?: Boolean;
+    loginClickHandler?: (event: SyntheticEvent) => void;
+    logo?: React.ReactNode;
 } & {
-    overrides?: NavBarOverridesProps | undefined | null;
+    overrides?: DefaultNavBarOverridesProps | undefined | null;
 }>;
-export default function NavBar(props: NavBarProps): React.ReactElement;
+export default function DefaultNavBar(props: DefaultNavBarProps): React.ReactElement;

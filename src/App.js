@@ -2,9 +2,7 @@ import React from "react";
 
 import ErrorPage from "./routes/ErrorPage";
 import Root from "./routes/Root";
-import Studio from "./routes/Studio";
-import Home from "./routes/Root";
-import { Flex, Link } from '@aws-amplify/ui-react';
+import Home from "./routes/Home";
 
 import { 
   BrowserRouter,
@@ -17,7 +15,6 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Root />} />
-        <Route path="/studio" element={<Studio />} />
         <Route path="/home" element={<Home />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>

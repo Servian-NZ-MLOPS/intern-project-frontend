@@ -9,8 +9,8 @@ import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { ButtonProps, DividerProps, FlexProps, ImageProps } from "@aws-amplify/ui-react";
 import { SyntheticEvent } from "react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type NavBarOverridesProps = {
-    NavBar?: PrimitiveOverrideProps<FlexProps>;
+export declare type UserNavBarOverridesProps = {
+    UserNavBar?: PrimitiveOverrideProps<FlexProps>;
     "Left Frame"?: PrimitiveOverrideProps<FlexProps>;
     Logo?: PrimitiveOverrideProps<FlexProps>;
     Divider?: PrimitiveOverrideProps<DividerProps>;
@@ -24,7 +24,7 @@ export declare type NavBarOverridesProps = {
     profile?: PrimitiveOverrideProps<ImageProps>;
     LogoutButton?: PrimitiveOverrideProps<ButtonProps>;
 } & EscapeHatchProps;
-export declare type NavBarProps = React.PropsWithChildren<Partial<FlexProps> & {
+export declare type UserNavBarProps = React.PropsWithChildren<Partial<FlexProps> & {
     logo?: React.ReactNode;
     profilePicture?: String;
     homeClickHandler?: (event: SyntheticEvent) => void;
@@ -32,6 +32,6 @@ export declare type NavBarProps = React.PropsWithChildren<Partial<FlexProps> & {
     logoutClickHandler?: (event: SyntheticEvent) => void;
     isStudioLoading?: Boolean;
 } & {
-    overrides?: NavBarOverridesProps | undefined | null;
+    overrides?: UserNavBarOverridesProps | undefined | null;
 }>;
-export default function NavBar(props: NavBarProps): React.ReactElement;
+export default function UserNavBar(props: UserNavBarProps): React.ReactElement;
