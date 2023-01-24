@@ -12,6 +12,8 @@ import App from "./App"
 
 
 // Amplify Stuff
+awsconfig.oauth.redirectSignIn = `${window.location.origin}/`;
+awsconfig.oauth.redirectSignOut = `${window.location.origin}/`;
 Amplify.configure(config)
 
 const container = document.getElementById("root");
