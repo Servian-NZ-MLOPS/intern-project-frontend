@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Storage } from 'aws-amplify'
-import { StudioButtonHeroLayout } from "../ui-components";
+import { StudioButtonHeroLayout, Button } from "../ui-components";
 import { getStudioURL } from "../api/StudioURL";
+import { requestInference } from "../api/RequestInference"
 
 function StudioHero(props) {
 
@@ -20,6 +21,8 @@ function StudioHero(props) {
     }
 
     getBackgroundImageFromS3()
+    // For testing purposes
+    handleInferenceClick()
 
     const handleStudioClick = () => {
         setIsButtonLoading(true)
@@ -34,15 +37,36 @@ function StudioHero(props) {
         window.location.replace(location)
     };
 
+    function handleInferenceClick() {
+        // This really necessary??
+        setIsButtonLoading(true)
+        callModelAPI()
+    }
+
+    async function callModelAPI() {
+        const response = await requestInference()
+        console.log(response)
+        setIsButtonLoading(false)
+    }
+
     return (
-        <StudioButtonHeroLayout
-            backgroundImageURL={backgroundImageURL}
-            topText={"User Profile: " + userProfileName}
-            midText={"Domain: " + sagemakerDomain}
-            botText={"Email: " + userEmail}
-            studioOnClickHandler={handleStudioClick}
-            isLoading={isButtonLoading}
-        />
+        <>
+            <Flex>
+                <StudioButtonHeroLayout
+                    backgroundImageURL={backgroundImageURL}
+                    topText={"User Profile: " + userProfileName}
+                    midText={"Domain: " + sagemakerDomain}
+                    botText={"Email: " + userEmail}
+                    studioOnClickHandler={handleStudioClick}
+                    isLoading={isButtonLoading}
+                />
+                <Button 
+                    onClick={handleInferenceClick}
+                    isLoading={isButtonLoading} 
+                />
+            </Flex>
+        </>
+
     );
 }
 
