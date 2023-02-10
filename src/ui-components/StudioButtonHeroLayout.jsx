@@ -16,6 +16,7 @@ export default function StudioButtonHeroLayout(props) {
     botText,
     studioOnClickHandler,
     isLoading = false,
+    myElement,
     overrides,
     ...rest
   } = props;

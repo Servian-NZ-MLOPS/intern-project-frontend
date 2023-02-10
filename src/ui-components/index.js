@@ -42,5 +42,5 @@ export { default as MyIcon } from "./MyIcon";
 export { default as StandardCard } from "./StandardCard";
 export { default as ContactUs } from "./ContactUs";
 export { default as studioTheme } from "./studioTheme";
-export { default as UserCreateForm } from "./UserCreateForm";
-export { default as UserUpdateForm } from "./UserUpdateForm";
+export { default as ModelCreateForm } from "./ModelCreateForm";
+export { default as ModelUpdateForm } from "./ModelUpdateForm";

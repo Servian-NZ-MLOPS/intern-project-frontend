@@ -1,7 +1,7 @@
 export const schema = {
     "models": {
-        "User": {
-            "name": "User",
+        "Model": {
+            "name": "Model",
             "fields": {
                 "id": {
                     "name": "id",
@@ -14,28 +14,21 @@ export const schema = {
                     "name": "name",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "role": {
-                    "name": "role",
-                    "isArray": false,
-                    "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "email": {
-                    "name": "email",
+                "version": {
+                    "name": "version",
                     "isArray": false,
-                    "type": "AWSEmail",
-                    "isRequired": true,
+                    "type": "Int",
+                    "isRequired": false,
                     "attributes": []
                 },
-                "picture": {
-                    "name": "picture",
+                "url": {
+                    "name": "url",
                     "isArray": false,
                     "type": "AWSURL",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "createdAt": {
@@ -56,7 +49,7 @@ export const schema = {
                 }
             },
             "syncable": true,
-            "pluralName": "Users",
+            "pluralName": "Models",
             "attributes": [
                 {
                     "type": "model",
@@ -83,6 +76,6 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "codegenVersion": "3.3.4",
-    "version": "7f4b67c599a6e037575666f512c9da93"
+    "codegenVersion": "3.3.5",
+    "version": "0a98b85c1269479617b82170d6b72fd1"
 };

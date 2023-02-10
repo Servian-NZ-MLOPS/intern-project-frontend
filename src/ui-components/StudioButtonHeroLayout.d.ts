@@ -27,6 +27,7 @@ export declare type StudioButtonHeroLayoutProps = React.PropsWithChildren<Partia
     botText?: String;
     studioOnClickHandler?: (event: SyntheticEvent) => void;
     isLoading?: Boolean;
+    myElement?: React.ReactNode;
 } & {
     overrides?: StudioButtonHeroLayoutOverridesProps | undefined | null;
 }>;
