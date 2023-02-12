@@ -11,6 +11,6 @@ export async function requestInference() {
             },
             body: JSON.stringify({"input_uri": "TODO.."})
         }
+    );
     return await response.json()
-    )
 }
