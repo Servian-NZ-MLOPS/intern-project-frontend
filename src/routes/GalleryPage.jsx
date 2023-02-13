@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Storage } from 'aws-amplify';
+import {
+    Grid,
+    Image,
+    useTheme,
+    Flex,
+    Heading,
+  } from '@aws-amplify/ui-react';
+
 
 
   
@@ -7,11 +15,12 @@ import { Storage } from 'aws-amplify';
 function GalleryPage() {
 
     const [images, setImages] = useState([]);
+    const { tokens } = useTheme();//test
 
     useEffect(() => {
       const fetchImages = async () => {
         try {
-          const imageList = await Storage.list('');
+          const imageList = await Storage.list('images/');
           console.log('images: ', imageList.results);
           const imageUrls = await Promise.all(
             imageList.results.map(async (image) => {
@@ -34,13 +43,26 @@ function GalleryPage() {
     };
 
     return (
-        <div style={{ display: "flex", flexWrap: "wrap"}}>
-            {images.map((image) => (
-                <div key={image.key} style={{ width: "200px", height: "200px" }} onClick={() => imageClickHandler(image.key)}>
-                    <img src={image.url} alt={image.key} style={{ width: "100%", height: "100%"}}></img>
+        <>
+            <Flex direction="column" alignItems="center">
+                <Heading level={2}>
+                    Gallary Inference
+                </Heading>
+                <div style={{ display: "flex", flexWrap: "wrap"}}>
+                    <Grid 
+                        columnGap="20px"
+                        rowGap="20px"
+                        templateColumns="1fr 1fr 1fr 1fr"
+                    >
+                        {images.map((image) => (
+                            <div key={image.key} style={{ width: "200px", height: "200px" }} onClick={() => imageClickHandler(image.key)}>
+                                <Image src={image.url} alt={image.key} style={{ width: "100%", height: "100%"}} />
+                            </div>
+                        ))}
+                    </Grid>
                 </div>
-            ))}
-        </div>
+            </Flex>
+        </>
     );
 }
 
