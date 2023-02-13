@@ -10,6 +10,8 @@ import {
   Routes,
   Route 
 } from 'react-router-dom';
+import GalleryPage from "./routes/GalleryPage";
+import CanvasPage from "./routes/CanvasPage";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route path="/" element={<Root />} />
         <Route path="/home" element={<Home />} />
         <Route path="/inference" element={<InferencePage />} />
+        <Route path="/gallery" element={<GalleryPage />} />
+        <Route path="/canvas" element={<CanvasPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>

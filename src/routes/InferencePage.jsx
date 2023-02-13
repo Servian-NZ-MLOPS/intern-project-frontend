@@ -21,15 +21,17 @@ function InferencePage() {
           >
             <Flex direction="row" justifyContent="center">
               <InferenceOptionCard 
-                cardHeading={"Inference Gallary"}
-                cardDescription={"View Gallary of MNIST Digits and Get Predictions."}
-                buttonText={"Go to Gallary"}
+                cardHeading={"Inference Gallery"}
+                cardDescription={"View Gallery of MNIST Digits and Get Predictions."}
+                buttonText={"Go to Gallery"}
+                routePath={"/gallery"}
               />
 
               <InferenceOptionCard 
                 cardHeading={"Inference Canvas"}
                 cardDescription={"Draw your own handwritten digits on a canvas and get predictions from the model."}
                 buttonText={"Go to Canvas"}
+                routePath={"/canvas"}
               />
             </Flex>
           </View>

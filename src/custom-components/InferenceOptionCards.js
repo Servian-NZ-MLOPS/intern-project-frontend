@@ -8,9 +8,10 @@ import {
     Button,
     useTheme,
   } from '@aws-amplify/ui-react';
+import { Link } from "react-router-dom";
   
 
-function InferenceOptionCard({cardHeading, cardDescription, buttonText}) {
+function InferenceOptionCard({cardHeading, cardDescription, buttonText, routePath}) {
     const { tokens } = useTheme();//test
     return (
         <Card style={{ flexBasis: "400px", flexShrink: "1", height: "400px"}}>
@@ -27,7 +28,10 @@ function InferenceOptionCard({cardHeading, cardDescription, buttonText}) {
                     <Text as="span" style={{ textAlign: "center"}}>
                         {cardDescription}
                     </Text>
-                    <Button variation="primary">{buttonText}</Button>
+                    <Link to={routePath}>
+                        <Button variation="primary">{buttonText}</Button>
+                    </Link>
+                    
                 </Flex>
             </Flex>
         </Card>
