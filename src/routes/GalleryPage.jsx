@@ -8,6 +8,8 @@ import {
     Heading,
   } from '@aws-amplify/ui-react';
 
+import { requestInference } from "../api/RequestInference"
+
 
 
   
@@ -21,6 +23,7 @@ function GalleryPage() {
       const fetchImages = async () => {
         try {
           const imageList = await Storage.list('images/');
+          console.log('objects: ', imageList);
           console.log('images: ', imageList.results);
           const imageUrls = await Promise.all(
             imageList.results.map(async (image) => {
@@ -29,16 +32,17 @@ function GalleryPage() {
             })
           );
           setImages(imageUrls);
-          console.log(images);
         } 
         catch (error) {
           console.error(error)
         }
       };
       fetchImages();
-    });
+    }, []);
 
-    const imageClickHandler = (filename) => {
+    const imageClickHandler = async (filename) => {
+        const apiResponse = await requestInference("public/" + filename);
+        console.log("APIIIII: ", apiResponse);
         alert(filename);
     };
 
