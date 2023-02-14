@@ -14,11 +14,22 @@ import { Link } from "react-router-dom";
 function InferenceOptionCard({cardHeading, cardDescription, buttonText, routePath}) {
     const { tokens } = useTheme();//test
     return (
-        <Card style={{ flexBasis: "400px", flexShrink: "1", height: "400px"}}>
-            <Flex direction="column" alignItems="center" justifyContent="center">
+        <Card 
+            variation="elevated" 
+            style=
+                {{ display: "flex", 
+                   justifyContent: "center", 
+                   alignItems: "center", 
+                   flexBasis: "400px", 
+                   flexShrink: "1", 
+                   height: "400px",
+                   borderRadius: "12px"
+                }}>
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center"}}>
                 <Flex
                 direction="column"
                 alignItems="center"
+                justifyContent="center"
                 gap={tokens.space.xs}
                 >
                     <Heading level={5}>
@@ -33,7 +44,7 @@ function InferenceOptionCard({cardHeading, cardDescription, buttonText, routePat
                     </Link>
                     
                 </Flex>
-            </Flex>
+            </div>
         </Card>
     );
 }

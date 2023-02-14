@@ -6,6 +6,7 @@ import {
     useTheme,
     Flex,
     Heading,
+    Divider,
   } from '@aws-amplify/ui-react';
 
 import { requestInference } from "../api/RequestInference"
@@ -25,6 +26,8 @@ function GalleryPage() {
           const imageList = await Storage.list('images/');
           console.log('objects: ', imageList);
           console.log('images: ', imageList.results);
+          imageList.results = imageList.results.filter(item => item.key !== "images/");
+          console.log('imagestake2: ', imageList.results);
           const imageUrls = await Promise.all(
             imageList.results.map(async (image) => {
                 const imageUrl = await Storage.get(image.key);
@@ -41,14 +44,24 @@ function GalleryPage() {
     }, []);
 
     const imageClickHandler = async (filename) => {
-        const apiResponse = await requestInference("public/" + filename);
+        let s3Key = "public/" + filename;
+        console.log("s3Key: ", s3Key);
+        const apiResponse = await requestInference(s3Key);
         console.log("APIIIII: ", apiResponse);
-        alert(filename);
+        let result = apiResponse["result"];
+        let dispString = "";
+        if (result === "1") {
+            dispString = "This Digit is a 0!";
+        }
+        else{
+            dispString = "This Digit is not a 0!";
+        }
+        alert(dispString);
     };
 
     return (
         <>
-            <Flex direction="column" alignItems="center">
+            <Flex direction="column" alignItems="center" style={{ backgroundColor: "rgb(255, 251, 240)" }}>
                 <Heading level={2}>
                     Gallary Inference
                 </Heading>
@@ -60,7 +73,7 @@ function GalleryPage() {
                     >
                         {images.map((image) => (
                             <div key={image.key} style={{ width: "200px", height: "200px" }} onClick={() => imageClickHandler(image.key)}>
-                                <Image src={image.url} alt={image.key} style={{ width: "100%", height: "100%"}} />
+                                <Image src={image.url} alt={image.key} style={{ width: "100%", height: "100%", borderRadius: "12px"}} />
                             </div>
                         ))}
                     </Grid>

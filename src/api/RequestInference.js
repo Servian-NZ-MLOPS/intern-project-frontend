@@ -9,7 +9,7 @@ export async function requestInference(s3Key) {
             headers: {
                 Authorization: `Bearer ${tokens.getIdToken().getJwtToken()}`
             },
-            body: JSON.stringify({"data": s3Key})
+            body: JSON.stringify({"input_uri": s3Key})
         }
     );
     return await response.json()
