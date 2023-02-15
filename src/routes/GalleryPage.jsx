@@ -45,7 +45,7 @@ function GalleryPage() {
     const imageClickHandler = async (filename) => {
         let s3Key = "public/" + filename;
         console.log("s3Key: ", s3Key);
-        const apiResponse = await requestInference(s3Key);
+        const apiResponse = await requestInference(s3Key, "mnist");
         console.log("APIIIII: ", apiResponse);
         let result = apiResponse["result"];
         let dispString = "";
