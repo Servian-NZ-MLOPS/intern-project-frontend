@@ -9,6 +9,7 @@ import {
 
 function CustomCard({children, cardHeight}) {
     const { tokens } = useTheme();//test
+    
     return (
         <Card 
             variation="elevated" 
@@ -16,9 +17,9 @@ function CustomCard({children, cardHeight}) {
                 {{ display: "flex", 
                    justifyContent: "center", 
                    alignItems: "center", 
-                   flexBasis: "500px", 
+                   flexBasis: "400px", 
                    flexShrink: "1", 
-                   height: {cardHeight},
+                   height: cardHeight,
                    borderRadius: "12px"
                 }}>
             <div style={{ display: "flex", justifyContent: "center", alignItems: "center"}}>

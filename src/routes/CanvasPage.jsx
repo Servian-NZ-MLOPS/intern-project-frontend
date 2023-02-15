@@ -9,16 +9,30 @@ import CustomCard from "../custom-components/CustomCard";
 
 function CanvasPage() {
 
-    const [state, setState] = useState({ fromValue: '', toValue: '', timeValue: '', bpmValue: ''});
+    const [fromValue, setFromValue] = useState('');
+    const [toValue, setToValue] = useState('');
+    const [timeValue, setTimeValue] = useState('');
+    const [bpmValue, setBpmValue] = useState('');
 
-    const handleInputs = (event) => {
-        const { name, value } = event.target;
-        setState((prevState) => ({ ...prevState, [name]: value }));
+    const handleFromValue = (event) => {
+        setFromValue(event.target.value);
+    }
+
+    const handleToValue = (event) => {
+        setToValue(event.target.value);
+    }
+
+    const handleTimeValue = (event) => {
+        setTimeValue(event.target.value);
+    }
+
+    const handleBpmValue = (event) => {
+        setBpmValue(event.target.value);
     }
 
     const formSubmitHandler = async () => {
 
-        const formValues = `${state.fromValue},${state.toValue},${state.timeValue},${state.bpmValue}`;
+        const formValues = `${fromValue},${toValue},${timeValue},${bpmValue}`;
         console.log(formValues);
 
         const apiResponse = await requestInferenceCategorical("ZQN,WKA,Morning,1.21");
@@ -39,29 +53,29 @@ function CanvasPage() {
                     descriptiveText="Enter Origin"
                     placeholder="ZQN"
                     label="From"
-                    value={state.fromValue}
-                    onInput={handleInputs}
+                    value={fromValue}
+                    onChange={handleFromValue}
                 />        
                 <TextField 
                     descriptiveText="Enter Destination"
                     placeholder="WKA"
                     label="To"
-                    value={state.toValue}
-                    onInput={handleInputs}
+                    value={toValue}
+                    onChange={handleToValue}
                 />        
                 <TextField 
                     descriptiveText="Enter Time of Day"
                     placeholder="Morning"
                     label="Time_of_Day"
-                    onInput={handleInputs}
-                    value={state.timeValue}
+                    onChange={handleTimeValue}
+                    value={timeValue}
                 />        
                 <TextField 
                     descriptiveText="Enter BPM"
                     placeholder="1.21"
                     label="BPM"
-                    onInput={handleInputs}
-                    value={state.bpmValue}
+                    onChange={handleBpmValue}
+                    value={bpmValue}
                 />
                 <Button onClick={formSubmitHandler}>
                     Submit!
