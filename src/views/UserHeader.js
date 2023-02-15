@@ -15,6 +15,10 @@ function UserHeader(props){
         navigate("/home")
     }
 
+    function handleModelClick() {
+        navigate("/inference")
+    }
+
     const handleStudioClick = () => {
         setIsButtonLoading(true)
         callApi()
@@ -43,6 +47,7 @@ function UserHeader(props){
             studioClickHandler={handleStudioClick}
             isStudioLoading={isButtonLoading}
             logoutClickHandler={handleLogoutClick}
+            modelsClickHandler={handleModelClick}
         />
     );
 }

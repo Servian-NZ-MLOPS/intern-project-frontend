@@ -16,9 +16,9 @@ export declare type UserNavBarOverridesProps = {
     Divider?: PrimitiveOverrideProps<DividerProps>;
     HomeButton?: PrimitiveOverrideProps<ButtonProps>;
     StudioButton?: PrimitiveOverrideProps<ButtonProps>;
+    ModelsButton?: PrimitiveOverrideProps<ButtonProps>;
     GithubButton?: PrimitiveOverrideProps<ButtonProps>;
-    ConfluenceButton?: PrimitiveOverrideProps<ButtonProps>;
-    JiraButton?: PrimitiveOverrideProps<ButtonProps>;
+    Confluence?: PrimitiveOverrideProps<ButtonProps>;
     "Right Frame"?: PrimitiveOverrideProps<FlexProps>;
     "Frame 1"?: PrimitiveOverrideProps<FlexProps>;
     profile?: PrimitiveOverrideProps<ImageProps>;
@@ -31,6 +31,7 @@ export declare type UserNavBarProps = React.PropsWithChildren<Partial<FlexProps>
     studioClickHandler?: (event: SyntheticEvent) => void;
     logoutClickHandler?: (event: SyntheticEvent) => void;
     isStudioLoading?: Boolean;
+    modelsClickHandler?: (event: SyntheticEvent) => void;
 } & {
     overrides?: UserNavBarOverridesProps | undefined | null;
 }>;

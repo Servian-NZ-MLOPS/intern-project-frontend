@@ -19,19 +19,15 @@ export default function UserNavBar(props) {
     studioClickHandler,
     logoutClickHandler,
     isStudioLoading = false,
+    modelsClickHandler,
     overrides,
     ...rest
   } = props;
   const githubButtonOnClick = useNavigateAction({
-    target: "_blank",
-    type: "url",
-    url: "https://github.com/Servian-NZ-MLOPS/intern-datasci-project-22",
-  });
-  const confluenceButtonOnClick = useNavigateAction({
     type: "url",
     url: "https://servian.atlassian.net/wiki/spaces/NZAIML/pages/111618785317/NZ+ai+consulting+practice+internships",
   });
-  const jiraButtonOnClick = useNavigateAction({
+  const confluenceOnClick = useNavigateAction({
     target: "_blank",
     type: "url",
     url: "https://servian.atlassian.net/jira/software/c/projects/NZS/boards/138/backlog?issueLimit=100",
@@ -109,6 +105,14 @@ export default function UserNavBar(props) {
           size="large"
           isDisabled={false}
           variation="link"
+          onClick={modelsClickHandler}
+          {...getOverrideProps(overrides, "ModelsButton")}
+        ></Button>
+        <Button
+          shrink="0"
+          size="large"
+          isDisabled={false}
+          variation="link"
           children="Github"
           onClick={() => {
             githubButtonOnClick();
@@ -122,20 +126,9 @@ export default function UserNavBar(props) {
           variation="link"
           children="Confluence"
           onClick={() => {
-            confluenceButtonOnClick();
+            confluenceOnClick();
           }}
-          {...getOverrideProps(overrides, "ConfluenceButton")}
-        ></Button>
-        <Button
-          shrink="0"
-          size="large"
-          isDisabled={false}
-          variation="link"
-          children="Jira"
-          onClick={() => {
-            jiraButtonOnClick();
-          }}
-          {...getOverrideProps(overrides, "JiraButton")}
+          {...getOverrideProps(overrides, "Confluence")}
         ></Button>
       </Flex>
       <Flex
