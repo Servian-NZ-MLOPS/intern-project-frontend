@@ -1,4 +1,6 @@
 import React from "react";
+import { withAuthenticator } from "@aws-amplify/ui-react";
+
   
 
 function CanvasPage() {
@@ -9,4 +11,4 @@ function CanvasPage() {
     );
 }
 
-export default CanvasPage;
+export default withAuthenticator(CanvasPage);

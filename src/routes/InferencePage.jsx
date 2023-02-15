@@ -1,4 +1,5 @@
 import React from "react";
+import { withAuthenticator } from "@aws-amplify/ui-react";
 
 import {
     View,
@@ -39,4 +40,4 @@ function InferencePage() {
     );
 }
 
-export default InferencePage
+export default withAuthenticator(InferencePage);
