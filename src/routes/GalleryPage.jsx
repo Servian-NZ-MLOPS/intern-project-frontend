@@ -3,10 +3,8 @@ import { Storage } from 'aws-amplify';
 import {
     Grid,
     Image,
-    useTheme,
     Flex,
     Heading,
-    useTheme,
   } from '@aws-amplify/ui-react';
 
 import { requestInference } from "../api/RequestInference"
@@ -20,7 +18,6 @@ import { withAuthenticator } from "@aws-amplify/ui-react";
 function GalleryPage() {
 
     const [images, setImages] = useState([]);
-    const { tokens } = useTheme();//test
 
     useEffect(() => {
       const fetchImages = async () => {
