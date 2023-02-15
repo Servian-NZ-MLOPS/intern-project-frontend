@@ -6,7 +6,7 @@ import {
     useTheme,
     Flex,
     Heading,
-    Divider,
+    useTheme,
   } from '@aws-amplify/ui-react';
 
 import { requestInference } from "../api/RequestInference"
