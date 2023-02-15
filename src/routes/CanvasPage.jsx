@@ -7,6 +7,7 @@ import {
     Flex,
     Button,
     useTheme,
+    View,
   } from '@aws-amplify/ui-react';
 
   
@@ -43,9 +44,9 @@ function CanvasPage() {
                                 {{ display: "flex", 
                                 justifyContent: "center", 
                                 alignItems: "center", 
-                                flexBasis: "400px", 
+                                flexBasis: "500px", 
                                 flexShrink: "1", 
-                                height: "400px",
+                                height: "520px",
                                 borderRadius: "12px"
                                 }}>
                             <div style={{ display: "flex", justifyContent: "center", alignItems: "center"}}>
