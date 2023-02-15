@@ -16,10 +16,10 @@ function InferencePage() {
         />
 
         <InferenceOptionCard 
-          cardHeading={"Inference Canvas"}
-          cardDescription={"Draw your own handwritten digits on a canvas and get predictions from the model."}
-          buttonText={"Go to Canvas"}
-          routePath={"/canvas"}
+          cardHeading={"Inference Entrada"}
+          cardDescription={"Make an Inference from Entrada Data."}
+          buttonText={"Go to Entrada"}
+          routePath={"/entrada"}
         />
       </PageLayouts>
                 

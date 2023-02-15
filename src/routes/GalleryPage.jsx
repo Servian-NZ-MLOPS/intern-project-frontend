@@ -62,7 +62,7 @@ function GalleryPage() {
         <>
             <Flex direction="column" alignItems="center" style={{ backgroundColor: "rgb(255, 251, 240)" }}>
                 <Heading level={2}>
-                    Gallary Inference
+                    Gallery Inference
                 </Heading>
                 <div style={{ display: "flex", flexWrap: "wrap"}}>
                     <Grid 

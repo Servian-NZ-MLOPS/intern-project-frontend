@@ -7,7 +7,7 @@ import { requestInference } from "../api/RequestInference";
 
   
 
-function CanvasPage() {
+function EntradaPage() {
 
     const [fromValue, setFromValue] = useState('');
     const [toValue, setToValue] = useState('');
@@ -44,6 +44,7 @@ function CanvasPage() {
         let message = apiResponse["message"];
         console.log("Result: ", result);
         console.log("Message: ", message);
+        alert(`Result: ${result}\nMessage: ${message}`)
 
     };
 
@@ -88,4 +89,4 @@ function CanvasPage() {
     );
 }
 
-export default withAuthenticator(CanvasPage);
+export default withAuthenticator(EntradaPage);

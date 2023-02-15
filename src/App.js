@@ -11,7 +11,7 @@ import {
   Route 
 } from 'react-router-dom';
 import GalleryPage from "./routes/GalleryPage";
-import CanvasPage from "./routes/CanvasPage";
+import EntradaPage from "./routes/EntradaPage";
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/inference" element={<InferencePage />} />
         <Route path="/gallery" element={<GalleryPage />} />
-        <Route path="/canvas" element={<CanvasPage />} />
+        <Route path="/entrada" element={<EntradaPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
