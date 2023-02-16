@@ -25,12 +25,12 @@ export default function UserNavBar(props) {
   } = props;
   const githubButtonOnClick = useNavigateAction({
     type: "url",
-    url: "https://servian.atlassian.net/wiki/spaces/NZAIML/pages/111618785317/NZ+ai+consulting+practice+internships",
+    url: "https://github.com/Servian-NZ-MLOPS/intern-datasci-project-22",
   });
   const confluenceOnClick = useNavigateAction({
     target: "_blank",
     type: "url",
-    url: "https://servian.atlassian.net/jira/software/c/projects/NZS/boards/138/backlog?issueLimit=100",
+    url: "https://servian.atlassian.net/wiki/spaces/NZAIML/pages/111618785317/NZ+ai+consulting+practice+internships",
   });
   return (
     <Flex

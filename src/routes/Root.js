@@ -10,10 +10,10 @@ function Root({ user }) {
                 profilePictureURL={user.attributes.picture}
             />
             <StudioHero
-                userProfileName ={user.attributes.given_name}
-                userEmail = {user.attributes.email}
-                sagemakerDomain = "Manual"
-             />
+                userProfileName={user.attributes.given_name}
+                userEmail={user.attributes.email}
+                sagemakerDomain="Non-Prod"
+            />
         </>
     );
 }
