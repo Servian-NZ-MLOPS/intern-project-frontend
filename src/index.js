@@ -13,7 +13,7 @@ import App from "./App"
 
 // Amplify Stuff
 config.oauth.redirectSignIn = `${window.location.origin}/`;
-config.oauth.redirectSignOut = `${window.location.origin}/home`;
+config.oauth.redirectSignOut = `${window.location.origin}/`;
 Amplify.configure(config)
 
 const container = document.getElementById("root");
@@ -23,7 +23,7 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <AmplifyProvider>
-          <App />
+      <App />
     </AmplifyProvider>
   </React.StrictMode>
 )
