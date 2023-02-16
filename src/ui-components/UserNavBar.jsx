@@ -105,6 +105,7 @@ export default function UserNavBar(props) {
           size="large"
           isDisabled={false}
           variation="link"
+          children="Models"
           onClick={modelsClickHandler}
           {...getOverrideProps(overrides, "ModelsButton")}
         ></Button>
