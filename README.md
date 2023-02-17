@@ -1,99 +1,30 @@
-https://staging.d2t47ov4dg63k4.amplifyapp.com
+# First Steps
 
-https://manualinternfrontendaa4fa423-aa4fa423-staging.auth.ap-southeast-2.amazoncognito.com/
+* [Read first.](https://i.kym-cdn.com/entries/icons/original/000/022/172/B5JUhG8CUAAd2b1.png)
 
+# Deployment
 
+* Download the Amplify CLI and run amplify init in this folder
+* Run Amplify add Auth
+* You must add a custom lambda function to Cognito's pre-token authorization step that takes the group the user is in and adds it to the scopes.
+* That group - scope connection is how the api gateway differentiates between any old user who signed up and the users who have been manually specified as authenticated users (current setup expects the authenticated group to be called 'mlops').
+* Run Amplify add Storage
+* Upload the required images into the public folder of the created storage bucket
+* Run Amplify add Hosting
+* Run Amplify push
+* Run Amplify publish
 
+# Interacting with the Terraform Pipeline
 
+* The domain pipeline defines the following variables based off of information about the front end:
+  * JWK_URL -> The URL we request JWT from
+  * AUDIENCE -> The ID of the user pool
+  * USER_PROFILE_TAG -> The information provided by the user login that we use to differentiate between Studio user profiles (We used 'given_name' though the auth settings have to be changed to map google profile data to cognito user data or this value won't be filled)
 
+* The front end requires the hardcoded urls used in the src/api/ functions to be changed to point at the URL for the new API gateway (as we don't have any static domain names.)
 
+# Interacting with Models
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* The current setup expects mnist images to be available in the frontend bucket and publically available so the lambda function can also access them.
+* The categorical model doesn't require any other setup beyond fixing the api gateway url.
+* Both models are hosted on serverless endpoints so it takes ~30 seconds for the inference buttons to work as the models have to spin up before they can respond. 

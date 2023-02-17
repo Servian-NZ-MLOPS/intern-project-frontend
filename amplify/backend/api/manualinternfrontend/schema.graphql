@@ -1,7 +1,0 @@
-type Model @model @auth(rules: [{allow: public}]) {
-  id: ID!
-  name: String
-  version: Int
-  url: AWSURL
-}
- 
